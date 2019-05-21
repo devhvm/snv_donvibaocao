@@ -1,0 +1,53 @@
+application {
+  config {
+    baseName donvibaocao,
+    applicationType microservice,
+    packageName com.manager.donvibaocao,
+    serviceDiscoveryType eureka,
+    authenticationType jwt,
+    databaseType mongodb,
+    prodDatabaseType mongodb,
+    devDatabaseType mongodb,
+    cacheProvider no,
+    enableHibernateCache false,
+    buildTool maven,
+    serverPort 8082,
+    skipUserManagement true
+  }
+  entities BaoCao, DuLieuBaoCao
+}
+entity BaoCao {
+    baoCaoCode String required
+    mauBaoCaoCode String required
+    name String required
+    status Status required
+}
+
+entity DuLieuBaoCao {
+    baoCaoCode String required
+    nhomDanhMucCode String required
+    danhMucCode String required
+    doiTuongCode String required
+    donViCode String required
+    giaTri Integer required
+}
+entity TienTrinhBaoCao {
+    tienTrinhCode String required
+    duLieuCode String required
+    name String required
+    fromUserId String required
+    toUserId String required
+    note String required
+    quyTrinhDonViId Long required
+    quyTrinhDonViName String required
+    status Status required
+}
+
+enum Status{
+    NEW, ACTIVE, SIGNED, FEEDBACK, DELETED
+}
+
+
+dto * with mapstruct
+service * with serviceImpl
+microservice * with donvibaocao
