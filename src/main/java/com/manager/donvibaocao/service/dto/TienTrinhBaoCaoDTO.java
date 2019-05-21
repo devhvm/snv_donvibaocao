@@ -39,6 +39,8 @@ public class TienTrinhBaoCaoDTO implements Serializable {
     private Status status;
 
 
+    private String baocaoId;
+
     public String getId() {
         return id;
     }
@@ -119,6 +121,14 @@ public class TienTrinhBaoCaoDTO implements Serializable {
         this.status = status;
     }
 
+    public String getBaocaoId() {
+        return baocaoId;
+    }
+
+    public void setBaocaoId(String baoCaoId) {
+        this.baocaoId = baoCaoId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -153,6 +163,7 @@ public class TienTrinhBaoCaoDTO implements Serializable {
             ", quyTrinhDonViId=" + getQuyTrinhDonViId() +
             ", quyTrinhDonViName='" + getQuyTrinhDonViName() + "'" +
             ", status='" + getStatus() + "'" +
+            ", baocao=" + getBaocaoId() +
             "}";
     }
 }

@@ -37,6 +37,12 @@
             "otherEntityName": "duLieuBaoCao",
             "otherEntityRelationshipName": "baocao",
             "relationshipName": "dulieubaocao"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tienTrinhBaoCao",
+            "otherEntityRelationshipName": "baocao",
+            "relationshipName": "tientrinhbaocao"
         }
     ],
     "changelogDate": "20190521220134",

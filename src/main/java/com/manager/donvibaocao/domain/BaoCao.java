@@ -45,6 +45,9 @@ public class BaoCao implements Serializable {
     @DBRef
     @Field("dulieubaocao")
     private Set<DuLieuBaoCao> dulieubaocaos = new HashSet<>();
+    @DBRef
+    @Field("tientrinhbaocao")
+    private Set<TienTrinhBaoCao> tientrinhbaocaos = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public String getId() {
         return id;
@@ -129,6 +132,31 @@ public class BaoCao implements Serializable {
 
     public void setDulieubaocaos(Set<DuLieuBaoCao> duLieuBaoCaos) {
         this.dulieubaocaos = duLieuBaoCaos;
+    }
+
+    public Set<TienTrinhBaoCao> getTientrinhbaocaos() {
+        return tientrinhbaocaos;
+    }
+
+    public BaoCao tientrinhbaocaos(Set<TienTrinhBaoCao> tienTrinhBaoCaos) {
+        this.tientrinhbaocaos = tienTrinhBaoCaos;
+        return this;
+    }
+
+    public BaoCao addTientrinhbaocao(TienTrinhBaoCao tienTrinhBaoCao) {
+        this.tientrinhbaocaos.add(tienTrinhBaoCao);
+        tienTrinhBaoCao.setBaocao(this);
+        return this;
+    }
+
+    public BaoCao removeTientrinhbaocao(TienTrinhBaoCao tienTrinhBaoCao) {
+        this.tientrinhbaocaos.remove(tienTrinhBaoCao);
+        tienTrinhBaoCao.setBaocao(null);
+        return this;
+    }
+
+    public void setTientrinhbaocaos(Set<TienTrinhBaoCao> tienTrinhBaoCaos) {
+        this.tientrinhbaocaos = tienTrinhBaoCaos;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

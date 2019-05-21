@@ -66,7 +66,15 @@
             ]
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "baoCao",
+            "otherEntityRelationshipName": "tientrinhbaocao",
+            "relationshipName": "baocao",
+            "otherEntityField": "id"
+        }
+    ],
     "changelogDate": "20190521220509",
     "entityTableName": "tien_trinh_bao_cao",
     "dto": "mapstruct",

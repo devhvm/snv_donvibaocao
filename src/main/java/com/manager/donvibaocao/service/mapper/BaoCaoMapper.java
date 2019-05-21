@@ -13,6 +13,7 @@ public interface BaoCaoMapper extends EntityMapper<BaoCaoDTO, BaoCao> {
 
 
     @Mapping(target = "dulieubaocaos", ignore = true)
+    @Mapping(target = "tientrinhbaocaos", ignore = true)
     BaoCao toEntity(BaoCaoDTO baoCaoDTO);
 
     default BaoCao fromId(String id) {

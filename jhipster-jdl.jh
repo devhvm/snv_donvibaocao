@@ -48,6 +48,7 @@ enum Status{
 }
 relationship OneToMany {
   BaoCao{dulieubaocao} to DuLieuBaoCao{baocao}
+  BaoCao{tientrinhbaocao} to TienTrinhBaoCao{baocao}
 }
 
 dto * with mapstruct
