@@ -46,7 +46,9 @@ entity TienTrinhBaoCao {
 enum Status{
     NEW, ACTIVE, SIGNED, FEEDBACK, DELETED
 }
-
+relationship OneToMany {
+  BaoCao{dulieubaocao} to DuLieuBaoCao{baocao}
+}
 
 dto * with mapstruct
 service * with serviceImpl

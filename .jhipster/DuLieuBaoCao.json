@@ -44,7 +44,15 @@
             ]
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "baoCao",
+            "otherEntityRelationshipName": "dulieubaocao",
+            "relationshipName": "baocao",
+            "otherEntityField": "id"
+        }
+    ],
     "changelogDate": "20190521220135",
     "entityTableName": "du_lieu_bao_cao",
     "dto": "mapstruct",
@@ -52,7 +60,7 @@
     "service": "serviceImpl",
     "jpaMetamodelFiltering": false,
     "fluentMethods": true,
-    "clientRootFolder": "",
+    "clientRootFolder": "donvibaocao",
     "applications": [
         "donvibaocao"
     ],

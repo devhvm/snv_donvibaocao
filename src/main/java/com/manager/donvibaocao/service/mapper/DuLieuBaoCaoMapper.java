@@ -8,10 +8,14 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity DuLieuBaoCao and its DTO DuLieuBaoCaoDTO.
  */
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {BaoCaoMapper.class})
 public interface DuLieuBaoCaoMapper extends EntityMapper<DuLieuBaoCaoDTO, DuLieuBaoCao> {
 
+    @Mapping(source = "baocao.id", target = "baocaoId")
+    DuLieuBaoCaoDTO toDto(DuLieuBaoCao duLieuBaoCao);
 
+    @Mapping(source = "baocaoId", target = "baocao")
+    DuLieuBaoCao toEntity(DuLieuBaoCaoDTO duLieuBaoCaoDTO);
 
     default DuLieuBaoCao fromId(String id) {
         if (id == null) {

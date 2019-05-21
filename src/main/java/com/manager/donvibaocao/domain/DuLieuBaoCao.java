@@ -1,6 +1,7 @@
 package com.manager.donvibaocao.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -44,6 +45,11 @@ public class DuLieuBaoCao implements Serializable {
     @NotNull
     @Field("gia_tri")
     private Integer giaTri;
+
+    @DBRef
+    @Field("baocao")
+    @JsonIgnoreProperties("dulieubaocaos")
+    private BaoCao baocao;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public String getId() {
@@ -130,6 +136,19 @@ public class DuLieuBaoCao implements Serializable {
 
     public void setGiaTri(Integer giaTri) {
         this.giaTri = giaTri;
+    }
+
+    public BaoCao getBaocao() {
+        return baocao;
+    }
+
+    public DuLieuBaoCao baocao(BaoCao baoCao) {
+        this.baocao = baoCao;
+        return this;
+    }
+
+    public void setBaocao(BaoCao baoCao) {
+        this.baocao = baoCao;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

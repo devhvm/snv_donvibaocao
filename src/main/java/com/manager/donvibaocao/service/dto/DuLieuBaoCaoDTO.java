@@ -29,6 +29,8 @@ public class DuLieuBaoCaoDTO implements Serializable {
     private Integer giaTri;
 
 
+    private String baocaoId;
+
     public String getId() {
         return id;
     }
@@ -85,6 +87,14 @@ public class DuLieuBaoCaoDTO implements Serializable {
         this.giaTri = giaTri;
     }
 
+    public String getBaocaoId() {
+        return baocaoId;
+    }
+
+    public void setBaocaoId(String baoCaoId) {
+        this.baocaoId = baoCaoId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -116,6 +126,7 @@ public class DuLieuBaoCaoDTO implements Serializable {
             ", doiTuongCode='" + getDoiTuongCode() + "'" +
             ", donViCode='" + getDonViCode() + "'" +
             ", giaTri=" + getGiaTri() +
+            ", baocao=" + getBaocaoId() +
             "}";
     }
 }

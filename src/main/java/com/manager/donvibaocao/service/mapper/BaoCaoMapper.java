@@ -12,6 +12,8 @@ import org.mapstruct.*;
 public interface BaoCaoMapper extends EntityMapper<BaoCaoDTO, BaoCao> {
 
 
+    @Mapping(target = "dulieubaocaos", ignore = true)
+    BaoCao toEntity(BaoCaoDTO baoCaoDTO);
 
     default BaoCao fromId(String id) {
         if (id == null) {
