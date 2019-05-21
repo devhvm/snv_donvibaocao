@@ -14,7 +14,7 @@ application {
     serverPort 8082,
     skipUserManagement true
   }
-  entities BaoCao, DuLieuBaoCao
+  entities BaoCao, DuLieuBaoCao, TienTrinhBaoCao
 }
 entity BaoCao {
     baoCaoCode String required

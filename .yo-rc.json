@@ -36,6 +36,7 @@
   },
   "entities": [
     "BaoCao",
-    "DuLieuBaoCao"
+    "DuLieuBaoCao",
+    "TienTrinhBaoCao"
   ]
 }
