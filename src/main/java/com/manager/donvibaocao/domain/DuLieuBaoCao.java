@@ -1,11 +1,9 @@
 package com.manager.donvibaocao.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
@@ -14,7 +12,7 @@ import java.util.Objects;
 /**
  * A DuLieuBaoCao.
  */
-@Document(collection = "du_lieu_bao_cao")
+//@Document(collection = "du_lieu_bao_cao")
 public class DuLieuBaoCao implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,10 +44,10 @@ public class DuLieuBaoCao implements Serializable {
     @Field("gia_tri")
     private Integer giaTri;
 
-    @DBRef
-    @Field("baocao")
-    @JsonIgnoreProperties("dulieubaocaos")
-    private BaoCao baocao;
+//    @DBRef
+//    @Field("baocao")
+//    @JsonIgnoreProperties("dulieubaocaos")
+//    private BaoCao baocao;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public String getId() {
@@ -138,18 +136,18 @@ public class DuLieuBaoCao implements Serializable {
         this.giaTri = giaTri;
     }
 
-    public BaoCao getBaocao() {
-        return baocao;
-    }
-
-    public DuLieuBaoCao baocao(BaoCao baoCao) {
-        this.baocao = baoCao;
-        return this;
-    }
-
-    public void setBaocao(BaoCao baoCao) {
-        this.baocao = baoCao;
-    }
+//    public BaoCao getBaocao() {
+//        return baocao;
+//    }
+//
+//    public DuLieuBaoCao baocao(BaoCao baoCao) {
+//        this.baocao = baoCao;
+//        return this;
+//    }
+//
+//    public void setBaocao(BaoCao baoCao) {
+//        this.baocao = baoCao;
+//    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

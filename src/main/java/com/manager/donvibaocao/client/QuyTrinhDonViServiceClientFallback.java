@@ -1,6 +1,6 @@
-package com.manager.phathanhmaubaocao.client;
+package com.manager.donvibaocao.client;
 
-import com.manager.phathanhmaubaocao.service.dto.quytrinhdonvi.DuLieuTienTrinhDTO;
+import com.manager.donvibaocao.service.dto.TienTrinhBaoCaoDTO;
 import org.springframework.stereotype.Component;
 
 import javax.validation.Valid;
@@ -10,7 +10,7 @@ public class QuyTrinhDonViServiceClientFallback implements QuyTrinhDonViServiceC
 
 
     @Override
-    public DuLieuTienTrinhDTO createDuLieuTienTrinh(@Valid DuLieuTienTrinhDTO duLieuTienTrinhDTO) {
+    public TienTrinhBaoCaoDTO createDuLieuTienTrinh(@Valid TienTrinhBaoCaoDTO duLieuTienTrinhDTO) {
         throw new RuntimeException("Loi truy cap service");
     }
 }

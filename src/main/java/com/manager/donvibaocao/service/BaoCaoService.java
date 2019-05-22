@@ -1,6 +1,8 @@
 package com.manager.donvibaocao.service;
 
 import com.manager.donvibaocao.service.dto.BaoCaoDTO;
+import com.manager.donvibaocao.service.dto.SaveBaoCaoDTO;
+import com.manager.donvibaocao.service.dto.TienTrinhBaoCaoDTO;
 
 import java.util.List;
 import java.util.Optional;
@@ -40,4 +42,10 @@ public interface BaoCaoService {
      * @param id the id of the entity
      */
     void delete(String id);
+
+    BaoCaoDTO saveBaoCao(SaveBaoCaoDTO saveBaoCaoDTO);
+
+    Optional<BaoCaoDTO> findOneByCode(String baoCaoCode);
+
+    Optional<TienTrinhBaoCaoDTO> updateQuyTrinh(String baoCaoCode, TienTrinhBaoCaoDTO tienTrinhBaoCao);
 }

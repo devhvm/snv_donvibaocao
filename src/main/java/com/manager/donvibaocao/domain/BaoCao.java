@@ -1,17 +1,13 @@
 package com.manager.donvibaocao.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Objects;
+import java.util.*;
 
 import com.manager.donvibaocao.domain.enumeration.Status;
 
@@ -19,7 +15,7 @@ import com.manager.donvibaocao.domain.enumeration.Status;
  * A BaoCao.
  */
 @Document(collection = "bao_cao")
-public class BaoCao implements Serializable {
+public class BaoCao extends  AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
@@ -42,12 +38,12 @@ public class BaoCao implements Serializable {
     @Field("status")
     private Status status;
 
-    @DBRef
+    //@DBRef
     @Field("dulieubaocao")
-    private Set<DuLieuBaoCao> dulieubaocaos = new HashSet<>();
-    @DBRef
+    private List<DuLieuBaoCao> dulieubaocaos = new ArrayList<>();
+    //@DBRef
     @Field("tientrinhbaocao")
-    private Set<TienTrinhBaoCao> tientrinhbaocaos = new HashSet<>();
+    private List<TienTrinhBaoCao> tientrinhbaocaos = new ArrayList<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public String getId() {
         return id;
@@ -109,53 +105,21 @@ public class BaoCao implements Serializable {
         this.status = status;
     }
 
-    public Set<DuLieuBaoCao> getDulieubaocaos() {
+    public List<DuLieuBaoCao> getDulieubaocaos() {
         return dulieubaocaos;
     }
 
-    public BaoCao dulieubaocaos(Set<DuLieuBaoCao> duLieuBaoCaos) {
-        this.dulieubaocaos = duLieuBaoCaos;
-        return this;
-    }
 
-    public BaoCao addDulieubaocao(DuLieuBaoCao duLieuBaoCao) {
-        this.dulieubaocaos.add(duLieuBaoCao);
-        duLieuBaoCao.setBaocao(this);
-        return this;
-    }
 
-    public BaoCao removeDulieubaocao(DuLieuBaoCao duLieuBaoCao) {
-        this.dulieubaocaos.remove(duLieuBaoCao);
-        duLieuBaoCao.setBaocao(null);
-        return this;
-    }
-
-    public void setDulieubaocaos(Set<DuLieuBaoCao> duLieuBaoCaos) {
+    public void setDulieubaocaos(List<DuLieuBaoCao> duLieuBaoCaos) {
         this.dulieubaocaos = duLieuBaoCaos;
     }
 
-    public Set<TienTrinhBaoCao> getTientrinhbaocaos() {
+    public List<TienTrinhBaoCao> getTientrinhbaocaos() {
         return tientrinhbaocaos;
     }
 
-    public BaoCao tientrinhbaocaos(Set<TienTrinhBaoCao> tienTrinhBaoCaos) {
-        this.tientrinhbaocaos = tienTrinhBaoCaos;
-        return this;
-    }
-
-    public BaoCao addTientrinhbaocao(TienTrinhBaoCao tienTrinhBaoCao) {
-        this.tientrinhbaocaos.add(tienTrinhBaoCao);
-        tienTrinhBaoCao.setBaocao(this);
-        return this;
-    }
-
-    public BaoCao removeTientrinhbaocao(TienTrinhBaoCao tienTrinhBaoCao) {
-        this.tientrinhbaocaos.remove(tienTrinhBaoCao);
-        tienTrinhBaoCao.setBaocao(null);
-        return this;
-    }
-
-    public void setTientrinhbaocaos(Set<TienTrinhBaoCao> tienTrinhBaoCaos) {
+    public void setTientrinhbaocaos(List<TienTrinhBaoCao> tienTrinhBaoCaos) {
         this.tientrinhbaocaos = tienTrinhBaoCaos;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove

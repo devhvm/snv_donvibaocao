@@ -38,8 +38,20 @@ public class TienTrinhBaoCaoDTO implements Serializable {
     @NotNull
     private Status status;
 
+    public TienTrinhBaoCaoDTO() {
+    }
 
-    private String baocaoId;
+    public TienTrinhBaoCaoDTO(@NotNull String name, @NotNull String tienTrinhCode, @NotNull String duLieuCode, @NotNull String fromUserId, @NotNull String toUserId, String note, Long quyTrinhDonViId, String quyTrinhDonViName, @NotNull Status status) {
+        this.name = name;
+        this.tienTrinhCode = tienTrinhCode;
+        this.duLieuCode = duLieuCode;
+        this.fromUserId = fromUserId;
+        this.toUserId = toUserId;
+        this.note = note;
+        this.quyTrinhDonViId = quyTrinhDonViId;
+        this.quyTrinhDonViName = quyTrinhDonViName;
+        this.status = status;
+    }
 
     public String getId() {
         return id;
@@ -121,14 +133,6 @@ public class TienTrinhBaoCaoDTO implements Serializable {
         this.status = status;
     }
 
-    public String getBaocaoId() {
-        return baocaoId;
-    }
-
-    public void setBaocaoId(String baoCaoId) {
-        this.baocaoId = baoCaoId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -163,7 +167,6 @@ public class TienTrinhBaoCaoDTO implements Serializable {
             ", quyTrinhDonViId=" + getQuyTrinhDonViId() +
             ", quyTrinhDonViName='" + getQuyTrinhDonViName() + "'" +
             ", status='" + getStatus() + "'" +
-            ", baocao=" + getBaocaoId() +
             "}";
     }
 }

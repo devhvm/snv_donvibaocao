@@ -1,7 +1,12 @@
 package com.manager.donvibaocao.service.dto;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import com.manager.donvibaocao.domain.DuLieuBaoCao;
+import com.manager.donvibaocao.domain.TienTrinhBaoCao;
 import com.manager.donvibaocao.domain.enumeration.Status;
 
 /**
@@ -23,6 +28,21 @@ public class BaoCaoDTO implements Serializable {
     @NotNull
     private Status status;
 
+    @NotNull
+    private List<DuLieuBaoCaoDTO> dulieubaocaos = new ArrayList<>();
+
+    @NotNull
+    private List<TienTrinhBaoCaoDTO> tientrinhbaocaos = new ArrayList<>();
+
+    public BaoCaoDTO() {
+    }
+
+    public BaoCaoDTO(@NotNull String baoCaoCode, @NotNull String mauBaoCaoCode, @NotNull String name, @NotNull Status status) {
+        this.baoCaoCode = baoCaoCode;
+        this.mauBaoCaoCode = mauBaoCaoCode;
+        this.name = name;
+        this.status = status;
+    }
 
     public String getId() {
         return id;
@@ -62,6 +82,22 @@ public class BaoCaoDTO implements Serializable {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public List<DuLieuBaoCaoDTO> getDulieubaocaos() {
+        return dulieubaocaos;
+    }
+
+    public void setDulieubaocaos(List<DuLieuBaoCaoDTO> dulieubaocaos) {
+        this.dulieubaocaos = dulieubaocaos;
+    }
+
+    public List<TienTrinhBaoCaoDTO> getTientrinhbaocaos() {
+        return tientrinhbaocaos;
+    }
+
+    public void setTientrinhbaocaos(List<TienTrinhBaoCaoDTO> tientrinhbaocaos) {
+        this.tientrinhbaocaos = tientrinhbaocaos;
     }
 
     @Override

@@ -2,7 +2,7 @@
 
 node {
     stage('Checkout') {
-        git url: 'https://github.com/devhvm/snv_phathanhmaubaocao.git', branch: 'development'
+        git url: 'https://github.com/devhvm/snv_donvibaocao.git', branch: 'development'
     }
     stage("build") {
         docker.image("jhipster/jhipster:v5.8.2").inside("-v /home/vunt/maven/.m2:/root/.m2") { c ->
@@ -37,7 +37,7 @@ node {
         sh "cp -R src/main/docker target/"
         sh "cp target/*.war target/docker/"
         echo 'I only execute on the development branch'
-        dockerImage = docker.build('snv-development/service-phathanhmaubaocao', 'target/docker')
+        dockerImage = docker.build('snv-development/service-donvibaocao', 'target/docker')
     }
     stage ('Run') {
 
@@ -47,12 +47,12 @@ node {
 
         echo 'I only execute on the development branch'
         try {
-            sh '( docker stop phathanhmaubaocao-app-dev > /dev/null && echo Stopped container phathanhmaubaocao-app-dev && \
-  docker rm phathanhmaubaocao-app-dev ) 2>/dev/null || true'
+            sh '( docker stop donvibaocao-app-dev > /dev/null && echo Stopped container donvibaocao-app-dev && \
+  docker rm donvibaocao-app-dev ) 2>/dev/null || true'
         } catch(err) {
 
         }
-        docker.image("snv-development/service-phathanhmaubaocao").run('--name phathanhmaubaocao-app-dev --net network-snv-dev --env-file target/docker/env_dev.list')
+        docker.image("snv-development/service-donvibaocao").run('--name donvibaocao-app-dev --net network-snv-dev --env-file target/docker/env_dev.list')
 
 
     }

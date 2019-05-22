@@ -1,20 +1,17 @@
 package com.manager.donvibaocao.service.dto;
-import javax.validation.constraints.*;
+
+
+import com.manager.donvibaocao.domain.enumeration.Status;
+
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-
-import com.manager.donvibaocao.domain.DuLieuBaoCao;
-import com.manager.donvibaocao.domain.TienTrinhBaoCao;
-import com.manager.donvibaocao.domain.enumeration.Status;
 
 /**
  * A DTO for the BaoCao entity.
  */
-public class BaoCaoDTO implements Serializable {
-
-    private String id;
+public class SaveBaoCaoDTO implements Serializable {
 
     @NotNull
     private String baoCaoCode;
@@ -26,22 +23,16 @@ public class BaoCaoDTO implements Serializable {
     private String name;
 
     @NotNull
-    private Status status;
+    private String tienTrinhCode;
+    @NotNull
+    private Long quyTrinhDonViId;
+    @NotNull
+    private String quyTrinhDonViName;
 
     @NotNull
     private List<DuLieuBaoCaoDTO> dulieubaocaos = new ArrayList<>();
 
-    @NotNull
-    private List<TienTrinhBaoCaoDTO> tientrinhbaocaos = new ArrayList<>();
 
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getBaoCaoCode() {
         return baoCaoCode;
@@ -67,14 +58,6 @@ public class BaoCaoDTO implements Serializable {
         this.name = name;
     }
 
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
     public List<DuLieuBaoCaoDTO> getDulieubaocaos() {
         return dulieubaocaos;
     }
@@ -83,43 +66,31 @@ public class BaoCaoDTO implements Serializable {
         this.dulieubaocaos = dulieubaocaos;
     }
 
-    public List<TienTrinhBaoCaoDTO> getTientrinhbaocaos() {
-        return tientrinhbaocaos;
+    public String getTienTrinhCode() {
+        return tienTrinhCode;
     }
 
-    public void setTientrinhbaocaos(List<TienTrinhBaoCaoDTO> tientrinhbaocaos) {
-        this.tientrinhbaocaos = tientrinhbaocaos;
+    public void setTienTrinhCode(String tienTrinhCode) {
+        this.tienTrinhCode = tienTrinhCode;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        BaoCaoDTO baoCaoDTO = (BaoCaoDTO) o;
-        if (baoCaoDTO.getId() == null || getId() == null) {
-            return false;
-        }
-        return Objects.equals(getId(), baoCaoDTO.getId());
+    public Long getQuyTrinhDonViId() {
+        return quyTrinhDonViId;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(getId());
+    public void setQuyTrinhDonViId(Long quyTrinhDonViId) {
+        this.quyTrinhDonViId = quyTrinhDonViId;
     }
 
-    @Override
-    public String toString() {
-        return "BaoCaoDTO{" +
-            "id=" + getId() +
-            ", baoCaoCode='" + getBaoCaoCode() + "'" +
-            ", mauBaoCaoCode='" + getMauBaoCaoCode() + "'" +
-            ", name='" + getName() + "'" +
-            ", status='" + getStatus() + "'" +
-            "}";
+    public String getQuyTrinhDonViName() {
+        return quyTrinhDonViName;
+    }
+
+    public void setQuyTrinhDonViName(String quyTrinhDonViName) {
+        this.quyTrinhDonViName = quyTrinhDonViName;
+    }
+
+    public BaoCaoDTO ofBaoCao(){
+        return new BaoCaoDTO(this.baoCaoCode,this.mauBaoCaoCode,this.name, Status.NEW);
     }
 }

@@ -11,10 +11,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {BaoCaoMapper.class})
 public interface TienTrinhBaoCaoMapper extends EntityMapper<TienTrinhBaoCaoDTO, TienTrinhBaoCao> {
 
-    @Mapping(source = "baocao.id", target = "baocaoId")
+    //@Mapping(source = "baocao.id", target = "baocaoId")
     TienTrinhBaoCaoDTO toDto(TienTrinhBaoCao tienTrinhBaoCao);
 
-    @Mapping(source = "baocaoId", target = "baocao")
+    //@Mapping(source = "baocaoId", target = "baocao")
     TienTrinhBaoCao toEntity(TienTrinhBaoCaoDTO tienTrinhBaoCaoDTO);
 
     default TienTrinhBaoCao fromId(String id) {

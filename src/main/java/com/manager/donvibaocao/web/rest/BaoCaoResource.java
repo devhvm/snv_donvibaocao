@@ -1,6 +1,7 @@
 package com.manager.donvibaocao.web.rest;
 import com.manager.donvibaocao.service.BaoCaoService;
-import com.manager.donvibaocao.web.rest.errors.BadRequestAlertException;
+import com.manager.donvibaocao.service.dto.SaveBaoCaoDTO;
+import com.manager.donvibaocao.service.dto.TienTrinhBaoCaoDTO;
 import com.manager.donvibaocao.web.rest.util.HeaderUtil;
 import com.manager.donvibaocao.service.dto.BaoCaoDTO;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -13,7 +14,6 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -33,69 +33,36 @@ public class BaoCaoResource {
         this.baoCaoService = baoCaoService;
     }
 
+
     /**
-     * POST  /bao-caos : Create a new baoCao.
+     * POST  /bao-cao : Create a save baoCao.
      *
-     * @param baoCaoDTO the baoCaoDTO to create
+     * @param saveBaoCaoDTO the baoCaoDTO to create
      * @return the ResponseEntity with status 201 (Created) and with body the new baoCaoDTO, or with status 400 (Bad Request) if the baoCao has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
-    @PostMapping("/bao-caos")
-    public ResponseEntity<BaoCaoDTO> createBaoCao(@Valid @RequestBody BaoCaoDTO baoCaoDTO) throws URISyntaxException {
-        log.debug("REST request to save BaoCao : {}", baoCaoDTO);
-        if (baoCaoDTO.getId() != null) {
-            throw new BadRequestAlertException("A new baoCao cannot already have an ID", ENTITY_NAME, "idexists");
-        }
-        BaoCaoDTO result = baoCaoService.save(baoCaoDTO);
-        return ResponseEntity.created(new URI("/api/bao-caos/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
-            .body(result);
-    }
+    @PostMapping("/bao-cao")
+    public ResponseEntity<BaoCaoDTO> saveBaoCao(@Valid @RequestBody SaveBaoCaoDTO saveBaoCaoDTO) throws URISyntaxException {
+        log.debug("REST request to save BaoCao : {}", saveBaoCaoDTO);
 
-    /**
-     * PUT  /bao-caos : Updates an existing baoCao.
-     *
-     * @param baoCaoDTO the baoCaoDTO to update
-     * @return the ResponseEntity with status 200 (OK) and with body the updated baoCaoDTO,
-     * or with status 400 (Bad Request) if the baoCaoDTO is not valid,
-     * or with status 500 (Internal Server Error) if the baoCaoDTO couldn't be updated
-     * @throws URISyntaxException if the Location URI syntax is incorrect
-     */
-    @PutMapping("/bao-caos")
-    public ResponseEntity<BaoCaoDTO> updateBaoCao(@Valid @RequestBody BaoCaoDTO baoCaoDTO) throws URISyntaxException {
-        log.debug("REST request to update BaoCao : {}", baoCaoDTO);
-        if (baoCaoDTO.getId() == null) {
-            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }
-        BaoCaoDTO result = baoCaoService.save(baoCaoDTO);
-        return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, baoCaoDTO.getId().toString()))
-            .body(result);
+        BaoCaoDTO result = baoCaoService.saveBaoCao(saveBaoCaoDTO);
+        return ResponseEntity.created(new URI("/api/bao-cao/" + result.getId()))
+                .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId()))
+                .body(result);
     }
-
     /**
-     * GET  /bao-caos : get all the baoCaos.
+     * GET  /bao-cao/:baoCaoCode : get the "baoCaoCode" baoCao.
      *
-     * @return the ResponseEntity with status 200 (OK) and the list of baoCaos in body
-     */
-    @GetMapping("/bao-caos")
-    public List<BaoCaoDTO> getAllBaoCaos() {
-        log.debug("REST request to get all BaoCaos");
-        return baoCaoService.findAll();
-    }
-
-    /**
-     * GET  /bao-caos/:id : get the "id" baoCao.
-     *
-     * @param id the id of the baoCaoDTO to retrieve
+     * @param baoCaoCode the id of the BaoCaoDTO to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the baoCaoDTO, or with status 404 (Not Found)
      */
-    @GetMapping("/bao-caos/{id}")
-    public ResponseEntity<BaoCaoDTO> getBaoCao(@PathVariable String id) {
-        log.debug("REST request to get BaoCao : {}", id);
-        Optional<BaoCaoDTO> baoCaoDTO = baoCaoService.findOne(id);
+    @GetMapping("/bao-cao/{baoCaoCode}")
+    public ResponseEntity<BaoCaoDTO> getBaoCao(@PathVariable String baoCaoCode) {
+        log.debug("REST request to get BaoCao : {}", baoCaoCode);
+        Optional<BaoCaoDTO> baoCaoDTO = baoCaoService.findOneByCode(baoCaoCode);
         return ResponseUtil.wrapOrNotFound(baoCaoDTO);
     }
+
 
     /**
      * DELETE  /bao-caos/:id : delete the "id" baoCao.
@@ -103,10 +70,22 @@ public class BaoCaoResource {
      * @param id the id of the baoCaoDTO to delete
      * @return the ResponseEntity with status 200 (OK)
      */
-    @DeleteMapping("/bao-caos/{id}")
+    @DeleteMapping("/bao-cao/{id}")
     public ResponseEntity<Void> deleteBaoCao(@PathVariable String id) {
         log.debug("REST request to delete BaoCao : {}", id);
         baoCaoService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id)).build();
+    }
+
+    @PutMapping("/bao-cao/{baoCaoCode}/cap-nhat-quy-trinh")
+    public ResponseEntity<TienTrinhBaoCaoDTO> updateMauPhatHanh(@PathVariable String baoCaoCode, @Valid @RequestBody TienTrinhBaoCaoDTO tienTrinhBaoCao) {
+        log.debug("REST request to  update MauBaoCao : {}", tienTrinhBaoCao);
+
+        TienTrinhBaoCaoDTO result = baoCaoService.updateQuyTrinh(baoCaoCode, tienTrinhBaoCao).get();
+
+        return ResponseEntity.ok()
+                .headers(HeaderUtil.createEntityUpdateAlert("DuLieuTienTrinh", result.getId().toString()))
+                .body(result);
+
     }
 }

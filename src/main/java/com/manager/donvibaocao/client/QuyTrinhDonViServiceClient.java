@@ -1,6 +1,6 @@
-package com.manager.phathanhmaubaocao.client;
+package com.manager.donvibaocao.client;
 
-import com.manager.phathanhmaubaocao.service.dto.quytrinhdonvi.DuLieuTienTrinhDTO;
+import com.manager.donvibaocao.service.dto.TienTrinhBaoCaoDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,5 +12,5 @@ import java.net.URISyntaxException;
 public interface QuyTrinhDonViServiceClient {
 
     @PostMapping("/du-lieu-tien-trinhs")
-    DuLieuTienTrinhDTO createDuLieuTienTrinh(@Valid @RequestBody DuLieuTienTrinhDTO duLieuTienTrinhDTO) throws URISyntaxException;
+    TienTrinhBaoCaoDTO createDuLieuTienTrinh(@Valid @RequestBody TienTrinhBaoCaoDTO duLieuTienTrinhDTO) throws URISyntaxException;
 }
