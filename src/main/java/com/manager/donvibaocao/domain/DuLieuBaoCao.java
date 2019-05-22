@@ -17,8 +17,8 @@ public class DuLieuBaoCao implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    @Id
-    private String id;
+//    @Id
+//    private String id;
 
     @NotNull
     @Field("bao_cao_code")
@@ -50,13 +50,13 @@ public class DuLieuBaoCao implements Serializable {
 //    private BaoCao baocao;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+//    public String getId() {
+//        return id;
+//    }
+//
+//    public void setId(String id) {
+//        this.id = id;
+//    }
 
     public String getBaoCaoCode() {
         return baoCaoCode;
@@ -150,36 +150,5 @@ public class DuLieuBaoCao implements Serializable {
 //    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        DuLieuBaoCao duLieuBaoCao = (DuLieuBaoCao) o;
-        if (duLieuBaoCao.getId() == null || getId() == null) {
-            return false;
-        }
-        return Objects.equals(getId(), duLieuBaoCao.getId());
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(getId());
-    }
-
-    @Override
-    public String toString() {
-        return "DuLieuBaoCao{" +
-            "id=" + getId() +
-            ", baoCaoCode='" + getBaoCaoCode() + "'" +
-            ", nhomDanhMucCode='" + getNhomDanhMucCode() + "'" +
-            ", danhMucCode='" + getDanhMucCode() + "'" +
-            ", doiTuongCode='" + getDoiTuongCode() + "'" +
-            ", donViCode='" + getDonViCode() + "'" +
-            ", giaTri=" + getGiaTri() +
-            "}";
-    }
 }

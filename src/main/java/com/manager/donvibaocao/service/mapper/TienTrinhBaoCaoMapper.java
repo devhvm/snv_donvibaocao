@@ -16,13 +16,4 @@ public interface TienTrinhBaoCaoMapper extends EntityMapper<TienTrinhBaoCaoDTO, 
 
     //@Mapping(source = "baocaoId", target = "baocao")
     TienTrinhBaoCao toEntity(TienTrinhBaoCaoDTO tienTrinhBaoCaoDTO);
-
-    default TienTrinhBaoCao fromId(String id) {
-        if (id == null) {
-            return null;
-        }
-        TienTrinhBaoCao tienTrinhBaoCao = new TienTrinhBaoCao();
-        tienTrinhBaoCao.setId(id);
-        return tienTrinhBaoCao;
-    }
 }

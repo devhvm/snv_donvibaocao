@@ -17,8 +17,8 @@ public class TienTrinhBaoCao implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    @Id
-    private String id;
+//    @Id
+//    private String id;
 
     @NotNull
     @Field("tien_trinh_code")
@@ -62,13 +62,13 @@ public class TienTrinhBaoCao implements Serializable {
 //    private BaoCao baocao;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+//    public String getId() {
+//        return id;
+//    }
+//
+//    public void setId(String id) {
+//        this.id = id;
+//    }
 
     public String getTienTrinhCode() {
         return tienTrinhCode;
@@ -201,39 +201,5 @@ public class TienTrinhBaoCao implements Serializable {
 //    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        TienTrinhBaoCao tienTrinhBaoCao = (TienTrinhBaoCao) o;
-        if (tienTrinhBaoCao.getId() == null || getId() == null) {
-            return false;
-        }
-        return Objects.equals(getId(), tienTrinhBaoCao.getId());
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(getId());
-    }
-
-    @Override
-    public String toString() {
-        return "TienTrinhBaoCao{" +
-            "id=" + getId() +
-            ", tienTrinhCode='" + getTienTrinhCode() + "'" +
-            ", duLieuCode='" + getDuLieuCode() + "'" +
-            ", name='" + getName() + "'" +
-            ", fromUserId='" + getFromUserId() + "'" +
-            ", toUserId='" + getToUserId() + "'" +
-            ", note='" + getNote() + "'" +
-            ", quyTrinhDonViId=" + getQuyTrinhDonViId() +
-            ", quyTrinhDonViName='" + getQuyTrinhDonViName() + "'" +
-            ", status='" + getStatus() + "'" +
-            "}";
-    }
 }

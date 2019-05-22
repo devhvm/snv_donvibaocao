@@ -65,16 +65,16 @@ public class BaoCaoResource {
 
 
     /**
-     * DELETE  /bao-caos/:id : delete the "id" baoCao.
+     * DELETE  /bao-caos/:baoCaoCode : delete the "baoCaoCode" baoCao.
      *
-     * @param id the id of the baoCaoDTO to delete
+     * @param baoCaoCode the id of the baoCaoDTO to delete
      * @return the ResponseEntity with status 200 (OK)
      */
-    @DeleteMapping("/bao-cao/{id}")
-    public ResponseEntity<Void> deleteBaoCao(@PathVariable String id) {
-        log.debug("REST request to delete BaoCao : {}", id);
-        baoCaoService.delete(id);
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id)).build();
+    @DeleteMapping("/bao-cao/{baoCaoCode}")
+    public ResponseEntity<Void> deleteBaoCao(@PathVariable String baoCaoCode) {
+        log.debug("REST request to delete BaoCao : {}", baoCaoCode);
+        baoCaoService.delete(baoCaoCode);
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, baoCaoCode)).build();
     }
 
     @PutMapping("/bao-cao/{baoCaoCode}/cap-nhat-quy-trinh")
@@ -84,7 +84,7 @@ public class BaoCaoResource {
         TienTrinhBaoCaoDTO result = baoCaoService.updateQuyTrinh(baoCaoCode, tienTrinhBaoCao).get();
 
         return ResponseEntity.ok()
-                .headers(HeaderUtil.createEntityUpdateAlert("DuLieuTienTrinh", result.getId().toString()))
+                .headers(HeaderUtil.createEntityUpdateAlert("DuLieuTienTrinh", result.getTienTrinhCode()))
                 .body(result);
 
     }

@@ -8,7 +8,6 @@ import java.util.Objects;
  */
 public class DuLieuBaoCaoDTO implements Serializable {
 
-    private String id;
 
     @NotNull
     private String baoCaoCode;
@@ -27,14 +26,6 @@ public class DuLieuBaoCaoDTO implements Serializable {
 
     @NotNull
     private Integer giaTri;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getBaoCaoCode() {
         return baoCaoCode;
@@ -84,37 +75,4 @@ public class DuLieuBaoCaoDTO implements Serializable {
         this.giaTri = giaTri;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        DuLieuBaoCaoDTO duLieuBaoCaoDTO = (DuLieuBaoCaoDTO) o;
-        if (duLieuBaoCaoDTO.getId() == null || getId() == null) {
-            return false;
-        }
-        return Objects.equals(getId(), duLieuBaoCaoDTO.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(getId());
-    }
-
-    @Override
-    public String toString() {
-        return "DuLieuBaoCaoDTO{" +
-            "id=" + getId() +
-            ", baoCaoCode='" + getBaoCaoCode() + "'" +
-            ", nhomDanhMucCode='" + getNhomDanhMucCode() + "'" +
-            ", danhMucCode='" + getDanhMucCode() + "'" +
-            ", doiTuongCode='" + getDoiTuongCode() + "'" +
-            ", donViCode='" + getDonViCode() + "'" +
-            ", giaTri=" + getGiaTri() +
-            "}";
-    }
 }

@@ -9,7 +9,6 @@ import com.manager.donvibaocao.domain.enumeration.Status;
  */
 public class TienTrinhBaoCaoDTO implements Serializable {
 
-    private String id;
 
     @NotNull
     private String tienTrinhCode;
@@ -51,14 +50,6 @@ public class TienTrinhBaoCaoDTO implements Serializable {
         this.quyTrinhDonViId = quyTrinhDonViId;
         this.quyTrinhDonViName = quyTrinhDonViName;
         this.status = status;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getTienTrinhCode() {
@@ -133,40 +124,4 @@ public class TienTrinhBaoCaoDTO implements Serializable {
         this.status = status;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        TienTrinhBaoCaoDTO tienTrinhBaoCaoDTO = (TienTrinhBaoCaoDTO) o;
-        if (tienTrinhBaoCaoDTO.getId() == null || getId() == null) {
-            return false;
-        }
-        return Objects.equals(getId(), tienTrinhBaoCaoDTO.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(getId());
-    }
-
-    @Override
-    public String toString() {
-        return "TienTrinhBaoCaoDTO{" +
-            "id=" + getId() +
-            ", tienTrinhCode='" + getTienTrinhCode() + "'" +
-            ", duLieuCode='" + getDuLieuCode() + "'" +
-            ", name='" + getName() + "'" +
-            ", fromUserId='" + getFromUserId() + "'" +
-            ", toUserId='" + getToUserId() + "'" +
-            ", note='" + getNote() + "'" +
-            ", quyTrinhDonViId=" + getQuyTrinhDonViId() +
-            ", quyTrinhDonViName='" + getQuyTrinhDonViName() + "'" +
-            ", status='" + getStatus() + "'" +
-            "}";
-    }
 }

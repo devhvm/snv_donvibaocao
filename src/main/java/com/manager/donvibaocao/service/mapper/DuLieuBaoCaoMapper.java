@@ -16,13 +16,4 @@ public interface DuLieuBaoCaoMapper extends EntityMapper<DuLieuBaoCaoDTO, DuLieu
 
     //@Mapping(source = "baocaoId", target = "baocao")
     DuLieuBaoCao toEntity(DuLieuBaoCaoDTO duLieuBaoCaoDTO);
-
-    default DuLieuBaoCao fromId(String id) {
-        if (id == null) {
-            return null;
-        }
-        DuLieuBaoCao duLieuBaoCao = new DuLieuBaoCao();
-        duLieuBaoCao.setId(id);
-        return duLieuBaoCao;
-    }
 }
