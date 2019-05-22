@@ -1,0 +1,8 @@
+_JAVA_OPTIONS=-Xmx512m -Xms256m
+SPRING_PROFILES_ACTIVE=prod,swagger
+EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:admin@jhipster-registry:8761/eureka
+SPRING_CLOUD_CONFIG_URI=http://admin:admin@jhipster-registry:8761/config
+SPRING_DATA_MONGODB_URI=mongodb://admin:adminpass@mongo_dev:27017
+SPRING_DATA_MONGODB_DATABASE=phathanhmaubaocao
+JHIPSTER_REGISTRY_PASSWORD=admin
+JHIPSTER_SLEEP=5
