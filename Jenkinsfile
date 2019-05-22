@@ -65,22 +65,6 @@ node {
         //     sh "docker-compose -f docker-compose-dev.yml  build"
         //     sh "docker-compose -f docker-compose-dev.yml  up -d"
         // }
-        post {
-            always {
-                // Git committer email
-                def GIT_COMMIT_EMAIL = sh (
-                    script: 'git --no-pager show -s --format=\'%ae\'',
-                    returnStdout: true
-                ).trim()
-                echo "Git committer email: ${GIT_COMMIT_EMAIL}"
-                def stderrfile = 'stderr.out'
-
-        //        emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
-        //            recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
-        //            subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
-
-            }
-        }
     } catch (e) {
     // If there was an exception thrown, the build failed
     currentBuild.result = "FAILED"
