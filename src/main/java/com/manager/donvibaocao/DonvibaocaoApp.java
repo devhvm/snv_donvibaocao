@@ -2,9 +2,7 @@ package com.manager.donvibaocao;
 
 import com.manager.donvibaocao.config.ApplicationProperties;
 import com.manager.donvibaocao.config.DefaultProfileUtil;
-
 import io.github.jhipster.config.JHipsterConstants;
-
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

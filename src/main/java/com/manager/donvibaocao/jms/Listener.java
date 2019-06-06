@@ -29,7 +29,7 @@ public class Listener {
         return demo.toString();
     }
     @JmsListener(
-        destination = "${spring.snv.process.updated:Consumer.SNV.VirtualTopic.PROCESS.UPDATED}"
+        destination = "${spring.snv.process.updated:Consumer.DonViBaoCao.VirtualTopic.SNV.PROCESS.UPDATED}"
     )
     public String onEvent(@Payload Demo demo
             , @Headers MessageHeaders headers

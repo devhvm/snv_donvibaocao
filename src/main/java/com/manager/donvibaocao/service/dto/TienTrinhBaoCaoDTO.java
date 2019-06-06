@@ -1,8 +1,9 @@
 package com.manager.donvibaocao.service.dto;
-import javax.validation.constraints.*;
-import java.io.Serializable;
-import java.util.Objects;
+
 import com.manager.donvibaocao.domain.enumeration.Status;
+
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 /**
  * A DTO for the TienTrinhBaoCao entity.

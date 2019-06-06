@@ -1,12 +1,12 @@
 package com.manager.donvibaocao.service.impl;
 
 import com.manager.donvibaocao.client.QuyTrinhDonViServiceClient;
+import com.manager.donvibaocao.domain.BaoCao;
 import com.manager.donvibaocao.domain.TienTrinhBaoCao;
 import com.manager.donvibaocao.domain.enumeration.Status;
+import com.manager.donvibaocao.repository.BaoCaoRepository;
 import com.manager.donvibaocao.security.SecurityUtils;
 import com.manager.donvibaocao.service.BaoCaoService;
-import com.manager.donvibaocao.domain.BaoCao;
-import com.manager.donvibaocao.repository.BaoCaoRepository;
 import com.manager.donvibaocao.service.dto.BaoCaoDTO;
 import com.manager.donvibaocao.service.dto.SaveBaoCaoDTO;
 import com.manager.donvibaocao.service.dto.TienTrinhBaoCaoDTO;
@@ -14,7 +14,6 @@ import com.manager.donvibaocao.service.mapper.BaoCaoMapper;
 import com.manager.donvibaocao.service.mapper.TienTrinhBaoCaoMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

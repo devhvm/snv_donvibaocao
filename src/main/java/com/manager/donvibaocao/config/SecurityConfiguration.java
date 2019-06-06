@@ -1,9 +1,8 @@
 package com.manager.donvibaocao.config;
 
-import com.manager.donvibaocao.security.*;
-import com.manager.donvibaocao.security.jwt.*;
-
-import org.springframework.context.annotation.Bean;
+import com.manager.donvibaocao.security.AuthoritiesConstants;
+import com.manager.donvibaocao.security.jwt.JWTConfigurer;
+import com.manager.donvibaocao.security.jwt.TokenProvider;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpMethod;

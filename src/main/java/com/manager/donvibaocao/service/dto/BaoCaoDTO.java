@@ -1,13 +1,12 @@
 package com.manager.donvibaocao.service.dto;
-import javax.validation.constraints.*;
+
+import com.manager.donvibaocao.domain.enumeration.Status;
+
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-import com.manager.donvibaocao.domain.DuLieuBaoCao;
-import com.manager.donvibaocao.domain.TienTrinhBaoCao;
-import com.manager.donvibaocao.domain.enumeration.Status;
 
 /**
  * A DTO for the BaoCao entity.

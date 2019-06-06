@@ -1,11 +1,8 @@
 package com.manager.donvibaocao.service.mapper;
 
-import com.manager.donvibaocao.domain.*;
-import com.manager.donvibaocao.repository.BaoCaoRepository;
+import com.manager.donvibaocao.domain.BaoCao;
 import com.manager.donvibaocao.service.dto.BaoCaoDTO;
-
-import org.mapstruct.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mapstruct.Mapper;
 
 /**
  * Mapper for the entity BaoCao and its DTO BaoCaoDTO.

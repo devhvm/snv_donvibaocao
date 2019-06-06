@@ -1,9 +1,10 @@
 package com.manager.donvibaocao.web.rest;
+
 import com.manager.donvibaocao.service.BaoCaoService;
+import com.manager.donvibaocao.service.dto.BaoCaoDTO;
 import com.manager.donvibaocao.service.dto.SaveBaoCaoDTO;
 import com.manager.donvibaocao.service.dto.TienTrinhBaoCaoDTO;
 import com.manager.donvibaocao.web.rest.util.HeaderUtil;
-import com.manager.donvibaocao.service.dto.BaoCaoDTO;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-
 import java.util.Optional;
 
 /**

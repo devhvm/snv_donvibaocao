@@ -1,7 +1,6 @@
 package com.manager.donvibaocao.config.audit;
 
 import com.manager.donvibaocao.domain.PersistentAuditEvent;
-
 import org.springframework.boot.actuate.audit.AuditEvent;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Component;

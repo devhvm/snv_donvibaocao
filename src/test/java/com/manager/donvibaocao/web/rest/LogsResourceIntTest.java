@@ -1,9 +1,9 @@
 package com.manager.donvibaocao.web.rest;
 
-import com.manager.donvibaocao.DonvibaocaoApp;
-import com.manager.donvibaocao.web.rest.vm.LoggerVM;
 import ch.qos.logback.classic.AsyncAppender;
 import ch.qos.logback.classic.LoggerContext;
+import com.manager.donvibaocao.DonvibaocaoApp;
+import com.manager.donvibaocao.web.rest.vm.LoggerVM;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

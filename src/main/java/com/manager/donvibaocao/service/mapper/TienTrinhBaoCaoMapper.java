@@ -1,9 +1,8 @@
 package com.manager.donvibaocao.service.mapper;
 
-import com.manager.donvibaocao.domain.*;
+import com.manager.donvibaocao.domain.TienTrinhBaoCao;
 import com.manager.donvibaocao.service.dto.TienTrinhBaoCaoDTO;
-
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
 
 /**
  * Mapper for the entity TienTrinhBaoCao and its DTO TienTrinhBaoCaoDTO.

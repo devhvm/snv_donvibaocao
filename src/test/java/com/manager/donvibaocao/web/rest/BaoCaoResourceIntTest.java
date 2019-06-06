@@ -1,14 +1,13 @@
 package com.manager.donvibaocao.web.rest;
 
 import com.manager.donvibaocao.DonvibaocaoApp;
-
 import com.manager.donvibaocao.domain.BaoCao;
+import com.manager.donvibaocao.domain.enumeration.Status;
 import com.manager.donvibaocao.repository.BaoCaoRepository;
 import com.manager.donvibaocao.service.BaoCaoService;
 import com.manager.donvibaocao.service.dto.BaoCaoDTO;
 import com.manager.donvibaocao.service.mapper.BaoCaoMapper;
 import com.manager.donvibaocao.web.rest.errors.ExceptionTranslator;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,14 +24,11 @@ import org.springframework.validation.Validator;
 
 import java.util.List;
 
-
 import static com.manager.donvibaocao.web.rest.TestUtil.createFormattingConversionService;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-import com.manager.donvibaocao.domain.enumeration.Status;
 /**
  * Test class for the BaoCaoResource REST controller.
  *
