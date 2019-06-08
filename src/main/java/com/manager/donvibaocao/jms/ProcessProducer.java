@@ -15,9 +15,8 @@ public class ProcessProducer {
     @Autowired
     private JmsTemplate jmsTemplate;
 
-    public void updateProcessing(String queueName, TienTrinhBaoCaoDTO tienTrinhBaoCaoDTO) {
-        log.info("sending with convertAndSend() to topic <" + queueName + ">");
+    public void updateProcessing(TienTrinhBaoCaoDTO tienTrinhBaoCaoDTO) {
         //jmsTemplate.convertAndSend(queueName, demo);
-        jmsTemplate.convertAndSend(new ActiveMQTopic(String.format("VirtualTopic.%s",queueName)), tienTrinhBaoCaoDTO);
+        jmsTemplate.convertAndSend(new ActiveMQTopic(String.format("VirtualTopic.%s","PROCESS.UPDATED")), tienTrinhBaoCaoDTO);
     }
 }
